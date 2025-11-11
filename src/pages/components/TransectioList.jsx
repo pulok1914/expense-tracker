@@ -1,17 +1,20 @@
 function TransectionList() {
     return (
-        <ul>
-            <li>
-                <p><span>Grocery Shopping</span> <span>$40</span></p>
-                <p>Food</p>
+        <ul className="transecton-list">
+            <li className="transection-list__item">
+                <p className="transection-list__item-name"><span>Grocery Shopping</span> <span>$40</span></p>
+                <p className="transection-list__item-category">Category:Food</p>
             </li>
-            <li>
-                <p><span>Freelance Project</span> <span>$200</span></p>
-                <p>Income</p>
+            <li className="transection-list__item">
+                <p className="transection-list__item-name"><span>Grocery Shopping</span> <span>$40</span></p>
+                <p className="transection-list__item-category">Category:Food</p>
             </li>
-            <li>
-                <p><span>Texi Ride</span> <span>$60</span></p>
-                <p>Tranport</p>
+            <li className="transection-list__item">
+                <p className="transection-list__item-name"><span>Grocery Shopping</span> <span>$40</span></p>
+                <p className="transection-list__item-category">Category:Food</p>
+            </li>
+            <li className="transection-list__item">
+                <p className="transection-list__item-name"><span>Total</span> <span>$120</span></p>
             </li>
         </ul>
     )

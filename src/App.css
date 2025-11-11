@@ -27,3 +27,44 @@
   gap: 2rem;
   margin: 1rem 0;
 }
+
+.transection-history{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.transection-history__heading{
+  text-align: center;
+}
+
+.transecton-list{
+  list-style: none;
+  width: 350px;
+  margin-top: 0.5rem;
+}
+
+.transection-list__item{
+  padding: 0.5rem;
+  border-bottom: 1px dotted #000;
+}
+
+.transection-list__item:last-child{
+  border: none;
+}
+
+.transection-list__item-name{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+
+.button{
+  display: block;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  margin: auto
+}
