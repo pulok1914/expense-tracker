@@ -3,6 +3,8 @@ import Container from "./components/Container"
 import HomeHero from "./components/HomeHero";
 import TransectionHistory from "./components/TransectionHistory";
 import Button from "./components/Button";
+import ModalWrapper from "./components/ModalWrapper";
+import AddTransactionForm from "./components/AddTransectionForm";
 
 
 function Home(){
@@ -11,6 +13,8 @@ function Home(){
         {id: "2107", name: "Freelance project", type: "income", category: "Food", amount: 400},
         {id: "2254", name: "Winter Shopping", type: "expense", category: "Cloth", amount: 100},
     ])
+
+    const [showModal,setShowModal] = useState(false)
 
     function calculateTotalIncome(){
         const totalIncome = transections
@@ -26,13 +30,39 @@ function Home(){
         return totalExpense;
     }
 
+
+    function closeModal(){
+        setShowModal(false)
+    }
+    function openModal(){
+        setShowModal(true)
+    }
+    function addTransection(newTransection){
+        const newData = {
+            id: Date.now().toString(),
+            ...newTransection,
+            amount: Number(newTransection.amount),
+        }
+        setTransections(prev => [...prev,newData])
+        setShowModal(false)
+    }
+
     return(
-        <Container>
-            <HomeHero calculateTotalIncome={calculateTotalIncome} calculateTotalExpense={calculateTotalExpense} />
-            <TransectionHistory transections={transections} />
-            <Button />
-        </Container>
+        (showModal?
+            (<ModalWrapper closeModal={closeModal}>
+                <AddTransactionForm handleSubmit={addTransection} />
+            </ModalWrapper>
+            ):(
+            <Container>
+                <HomeHero calculateTotalIncome={calculateTotalIncome} calculateTotalExpense={calculateTotalExpense} />
+                <TransectionHistory transections={transections} />
+                <Button addTransection={openModal} />
+            </Container>
+            )
+        )
+
     )
 }
+
 
 export default Home;

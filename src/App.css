@@ -70,3 +70,38 @@
   margin: auto;
   cursor: pointer;
 }
+.modal-overlay{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.modal-box {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  min-width: 320px;
+}
+
+.add-trnx-form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+input{
+  padding: 5px 8px;
+}
+
+label{
+  margin: 8px 0;
+}
+
+.add-trnx-form button{
+  margin-top: 1rem;
+}
