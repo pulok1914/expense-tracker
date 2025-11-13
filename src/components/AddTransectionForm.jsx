@@ -1,24 +1,36 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 // src/components/AddTransactionForm.jsx
-function AddTransactionForm({ handleSubmit }) {
-  const [formData, SetFormData] = useState({
-    name: "",
-    amount: "",
-    type: "income",
-    category: "Food",
-  })
+function AddTransactionForm({ initialvalues, handleSubmit }) {
+  const [formData, SetFormData] = useState(
+    initialvalues ||{name: "",amount: "",type: "income",category: "Food",}
+    )
+    console.log("initial",initialvalues)
+       console.log("formdata",initialvalues)
+  //prefil while editing
+  useEffect(()=>{
+    if(initialvalues){
+      SetFormData({
+        id: initialvalues.id,
+        name: initialvalues.name,
+        amount: initialvalues.amount.toString(),
+        type: initialvalues.type || "income",
+        category: initialvalues.category || "Food",
+      })
+    }
+  },[initialvalues])
+
   function handleChange(e){
     const {name,value} = e.target;
     SetFormData(prev=>({...prev,[name]:value,}))
   }
 
   function onSubmit(e){
-    //stop defulat behaviour like reload
     e.preventDefault();
-    //input validation
+    console.log(formData)
+
     if(!formData.name.trim() || !formData.amount.trim()) return alert("Please fill the form");
-    //send data to Component where state should be changed
+
     handleSubmit(formData)
   }
 
@@ -46,7 +58,7 @@ function AddTransactionForm({ handleSubmit }) {
       </label>
 
 
-      <button className="button" type="submit">Save</button>
+      <button className="button" type="submit">{initialvalues?"Update":"Save"}</button>
     </form>
   );
 }
