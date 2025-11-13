@@ -1,10 +1,11 @@
 import { useState } from "react";
-import Container from "./components/Container"
-import HomeHero from "./components/HomeHero";
-import TransectionHistory from "./components/TransectionHistory";
-import Button from "./components/Button";
-import ModalWrapper from "./components/ModalWrapper";
-import AddTransactionForm from "./components/AddTransectionForm";
+import { Link } from "react-router-dom";
+import Container from "../components/Container"
+import HomeHero from "../components/HomeHero";
+import TransectionHistory from "../components/TransectionHistory";
+import Button from "../components/Button";
+import ModalWrapper from "../components/ModalWrapper";
+import AddTransactionForm from "../components/AddTransectionForm";
 
 
 function Home(){
@@ -57,6 +58,7 @@ function Home(){
                 <HomeHero calculateTotalIncome={calculateTotalIncome} calculateTotalExpense={calculateTotalExpense} />
                 <TransectionHistory transections={transections} />
                 <Button addTransection={openModal} />
+                <Link to="/all-transection">See All Transection </Link>
             </Container>
             )
         )

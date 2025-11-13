@@ -105,3 +105,22 @@ label{
 .add-trnx-form button{
   margin-top: 1rem;
 }
+.all-transection-heading{
+  margin: 2rem 0 1rem 0;
+  text-align: center;
+}
+
+.all-Transection-list{
+  align-items: center;
+  border-collapse: collapse;
+  margin: auto;
+}
+
+.all-transection-list-row{
+  padding: 5px 8px;
+}
+
+.all-transection-list-data{
+  padding: 1rem 2rem;
+  text-align: center;
+}
